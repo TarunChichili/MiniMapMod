@@ -9,6 +9,6 @@
 
 #### In Intellij :
 * Select The "runClient" Configuration
-    * If The Classpath To The Module Is Blank, Set It To modName.main
+* If The Classpath To The Module Is Blank In The Configuration, Set It To modName.main
 
 * Assuming Everything Went Well, Minecraft Should Start When You Run "runClient"

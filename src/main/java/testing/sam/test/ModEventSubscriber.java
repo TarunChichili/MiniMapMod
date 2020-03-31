@@ -1,5 +1,7 @@
 package testing.sam.test;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
@@ -16,6 +18,14 @@ public class ModEventSubscriber {
     @SubscribeEvent
     public static void onRegisterItems(RegistryEvent.Register<Item> Event) {
         Event.getRegistry().registerAll(setup(new Item(new Item.Properties()), "test_item"));
+
+    }
+
+    @SubscribeEvent
+    public static void onRegisterBlocks(RegistryEvent.Register<Block> Event) {
+        Event.getRegistry().registerAll(
+                setup(new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F, 3.0F)), "test_ore")
+        );
     }
 
 
@@ -35,6 +45,7 @@ public class ModEventSubscriber {
 
     public static <T extends IForgeRegistryEntry<T>> T setup(final T entry, final ResourceLocation registryName) {
         entry.setRegistryName(registryName);
+
         return entry;
     }
 
